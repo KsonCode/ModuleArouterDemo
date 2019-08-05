@@ -1,6 +1,5 @@
 package com.bwie.modulearouterdemo;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +7,6 @@ import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bwie.lib_core.ArouterPath;
-import com.bwie.module_home.fragment.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.gotohome).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ARouter.getInstance().build(ArouterPath.HOME_URL).navigation();
+                ARouter.getInstance().build(ArouterPath.HOME_URL).withString("name","kson").navigation();
 
                 Fragment homeFrament = (Fragment) ARouter.getInstance().build("/home/homeFragment").navigation();
                 System.out.println("frament==="+homeFrament);
